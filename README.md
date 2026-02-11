@@ -12,13 +12,22 @@ CSV file handling in Python.
   
 
 Features:  
-Fetches 50 programming books from Open Library and filters books published after 2000  
+Fetches some programming books data from Open Library and filters books published after 2000  
+Handles missing or incomplete data safely   
 Extracts:  
-book title, author name and publish year  
+Book title, author name, publish year and decade, and edition count  
+Sorts all books based on their published year (from newest to oldest)
 Writes the filtered data into a CSV file  
-And lastly prints a summary of how many books were saved.  
+And lastly prints a detailed summary in terminal including:  
+The total number of how many books were fetched  
+The total number of how many books were published after 2000  
+Newest published book (title and year)  
+Oldest published book (title and year)  
+And output CSV file name.  
+This separation keeps the CSV file clean while still providing useful insights for the user.  
 
-  
+
+
 
 Requirements:
 Make sure you have Python 3.x installed.  
@@ -26,7 +35,6 @@ Required Python libraries:
 requests (external)  
 csv (built-in)
 
-  
 
 And as it was mentioned earlier, the data source of this program is:  
 Open Library API (https://openlibrary.org/subjects/programming.json) 
