@@ -23,14 +23,20 @@ for book in books :
         author = "Unknown"
 
     if publish_year and publish_year >= min_year :
+        decade = f"{(publish_year//10)*10}s"
         filtered_books.append({
             "Title":book.get("title","N/A") ,
             "Author":author ,
-            "Publish Year":publish_year
+            "Publish Year":publish_year,
+            "Decade":decade, 
+            "Edition Count":book.get("edition_count")
             })
+#loop ended
+
+filtered_books.sort(key= lambda x : x["Publish Year"] , reverse=True)
 
 with open(output_file , "w" , newline="" , encoding="utf-8") as file:
-    writer = csv.DictWriter(file , fieldnames=["Title" , "Author" , "Publish Year"])
+    writer = csv.DictWriter(file , fieldnames=["Title" , "Author" , "Publish Year" , "Decade" , "Edition Count" ])
     writer.writeheader()
     writer.writerows(filtered_books)
 

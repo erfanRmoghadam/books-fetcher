@@ -1,22 +1,22 @@
-Title,Author,Publish Year
-Game Ai Pro 360,Steve Rabin,2019
-Raspberry Pi User Guide,Eben Upton,2012
-The Book of Shaders,Patricio Gonzalez Vivo,2015
-3D Game Environments,Luke Ahearn,2008
-Apple Pro Training Series,Diana Weynand,2003
-Storytelling with Data,Cole Nussbaumer Knaflic,2015
-Apple Training Series,Peachpit Press,2004
-Analyzing Baseball Data With R,Jim Albert,2013
-Programming ArcObjects with VBA,Kang-Tsung Chang,2004
-Android application development all-in-one for dummies,Barry Burd,2011
-Information Processing and Management of Uncertainty in Knowledge-Based Systems,Joao Paulo Carvalho,2016
-Swift programming,Matthew Mathias,2015
-Adventures in Raspberry Pi,Carrie Anne Philbin,2013
-Android Fully Loaded,Rob Huddleston,2010
-3D Game Engine Design,David H. Eberly,2000
-Arduino Cookbook,Michael Margolis,2011
-Game physics,David H. Eberly,2003
-Building Embedded Linux Systems,Karim Yaghmour,2003
-Computer graphics through openGL,Sumanta Guha,2010
-C# Game Programming Cookbook for Unity 3D,Jeff W. Murray,2014
-"Learning PHP, MySQL & JavaScript",Robin Nixon,2009
+Title,Author,Publish Year,Decade,Edition Count
+Game Ai Pro 360,Steve Rabin,2019,2010s,24
+Information Processing and Management of Uncertainty in Knowledge-Based Systems,Joao Paulo Carvalho,2016,2010s,10
+The Book of Shaders,Patricio Gonzalez Vivo,2015,2010s,14
+Storytelling with Data,Cole Nussbaumer Knaflic,2015,2010s,12
+Swift programming,Matthew Mathias,2015,2010s,10
+C# Game Programming Cookbook for Unity 3D,Jeff W. Murray,2014,2010s,9
+Analyzing Baseball Data With R,Jim Albert,2013,2010s,11
+Adventures in Raspberry Pi,Carrie Anne Philbin,2013,2010s,10
+Raspberry Pi User Guide,Eben Upton,2012,2010s,16
+Android application development all-in-one for dummies,Barry Burd,2011,2010s,10
+Arduino Cookbook,Michael Margolis,2011,2010s,10
+Android Fully Loaded,Rob Huddleston,2010,2010s,10
+Computer graphics through openGL,Sumanta Guha,2010,2010s,9
+"Learning PHP, MySQL & JavaScript",Robin Nixon,2009,2000s,9
+3D Game Environments,Luke Ahearn,2008,2000s,13
+Apple Training Series,Peachpit Press,2004,2000s,12
+Programming ArcObjects with VBA,Kang-Tsung Chang,2004,2000s,11
+Apple Pro Training Series,Diana Weynand,2003,2000s,13
+Game physics,David H. Eberly,2003,2000s,9
+Building Embedded Linux Systems,Karim Yaghmour,2003,2000s,9
+3D Game Engine Design,David H. Eberly,2000,2000s,10
