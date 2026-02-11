@@ -1,18 +1,35 @@
 import csv
 import requests
 
+URL = "https://openlibrary.org/subjects/programming.json"
 parameters = {"limit":50}
-response = requests.get("https://openlibrary.org/subjects/programming.json" , params=parameters)
+min_year = 2000
+output_file = "past_2000_books.csv"
+
+response = requests.get( URL , params=parameters)
 data = response.json()
-books = data["works"]
+books = data.get("works" , [])
 filtered_books = []
 
-for book in books :
-    publish_year = book["first_publish_year"]
-    if publish_year > 2000 :
-        filtered_books.append({"Title":book["title"] , "Author":book["authors"][0]["name"] , "Publish Year":publish_year})
 
-with open("past_2000_books.csv" , "w" , newline="" , encoding="utf-8") as file:
+for book in books :
+
+    publish_year = book["first_publish_year"]
+    authors = book.get("authors" , [])
+
+    if authors:
+        author = authors[0].get("name")
+    else:
+        author = "Unknown"
+
+    if publish_year and publish_year >= min_year :
+        filtered_books.append({
+            "Title":book.get("title","N/A") ,
+            "Author":author ,
+            "Publish Year":publish_year
+            })
+
+with open(output_file , "w" , newline="" , encoding="utf-8") as file:
     writer = csv.DictWriter(file , fieldnames=["Title" , "Author" , "Publish Year"])
     writer.writeheader()
     writer.writerows(filtered_books)
