@@ -27,6 +27,11 @@ And output CSV file name.
 This separation keeps the CSV file clean while still providing useful insights for the user.  
 
 
+The project also follows clean code and professional practices:  
+Code was formatted using Black for consistent style and PEP8 compliance  
+Generated CSV file is ignored in the repository using a .gitignore file  
+Dependencies are listed in requirements.txt for easy setup  
+
 
 
 Requirements:
