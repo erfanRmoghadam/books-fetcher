@@ -1,30 +1,41 @@
 import csv
 import requests
+from typing import Any, Dict, List, TypedDict
 
-URL = "https://openlibrary.org/subjects/programming.json"
-parameters = {"limit": 50}
-MIN_YEAR = 2000
-OUTPUT_FILE = "past_2000_books.csv"
+class Book(TypedDict):
+    Title: str
+    Author: str
+    PublishYear: int
+    Decade: str
+    EditionCount: int | None
 
-response = requests.get(URL, params=parameters)
-data = response.json()
-books = data.get("works", [])
-filtered_books = []
-years = []
 
-# loop started
+URL: str = "https://openlibrary.org/subjects/programming.json"
+parameters: Dict[str, int] = {"limit": 50}
+MIN_YEAR: int = 2000
+OUTPUT_FILE: str = "past_2000_books.csv"
+
+response: requests.Response = requests.get(URL, params=parameters)
+data: Dict[str, Any] = response.json()
+
+books: List[Dict[str, Any]] = data.get("works", [])
+filtered_books: List[Book] = []
+years: List[int] = []
+
+
 for book in books:
 
-    publish_year = book["first_publish_year"]
-    authors = book.get("authors", [])
+    publish_year: int | None = book.get("first_publish_year")
+    authors: List[Dict[str, Any]] = book.get("authors", [])
 
     if authors:
-        author = authors[0].get("name")
+        author: str = authors[0].get("name", "Unknown")
     else:
         author = "Unknown"
 
     if publish_year and publish_year >= MIN_YEAR:
-        decade = f"{(publish_year//10)*10}s"
+        decade: str = f"{(publish_year//10)*10}s"
+
         filtered_books.append(
             {
                 "Title": book.get("title", "N/A"),
@@ -34,14 +45,13 @@ for book in books:
                 "Edition Count": book.get("edition_count"),
             }
         )
-# loop ended
 
 
 filtered_books.sort(key=lambda x: x["Publish Year"], reverse=True)
 
 
 with open(OUTPUT_FILE, "w", newline="", encoding="utf-8") as file:
-    writer = csv.DictWriter(
+    writer: csv.DictWriter = csv.DictWriter(
         file, fieldnames=["Title", "Author", "Publish Year", "Decade", "Edition Count"]
     )
     writer.writeheader()
@@ -51,8 +61,8 @@ with open(OUTPUT_FILE, "w", newline="", encoding="utf-8") as file:
 for book in filtered_books:
     years.append(book["Publish Year"])
 
-newest_book = filtered_books[0]["Title"]
-oldest_book = filtered_books[-1]["Title"]
+newest_book: str = filtered_books[0]["Title"]
+oldest_book: str = filtered_books[-1]["Title"]
 
 
 print("\nSummary Report")
